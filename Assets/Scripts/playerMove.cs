@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rig;
-    public bool isPlayerActive, canJumpAgain = false;
+    [SerializeField] bool isPlayerActive, canJumpAgain = false;
 
     public int totemID;
 
@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
 
         playerSpeedMax = playerSpeed; 
+        classPlayerChange = GetComponentInParent<PlayerChange>();
     }
 
     // Update is called once per frame
@@ -44,7 +45,7 @@ public class PlayerMove : MonoBehaviour
             Jump();
 
         if(Input.GetKeyDown(KeyCode.C))
-            classPlayerChange.ChangeCharacter(totemID);
+            classPlayerChange.ChangeCharacter();
         
         VelocityDecay();                // Decays X, and Y velocities over time
     }
