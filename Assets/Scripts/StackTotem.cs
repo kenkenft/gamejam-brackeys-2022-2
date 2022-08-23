@@ -20,7 +20,7 @@ public class StackTotem : MonoBehaviour
     {
         classPlayerChange = GetComponentInParent<PlayerChange>();
         maxTotemCount = classPlayerChange.GetMaxTotemCount();
-        offsetTotemHeight = 1.02f * GetComponentInParent<BoxCollider2D>().size[1];
+        offsetTotemHeight = 1.05f * GetComponentInParent<BoxCollider2D>().size[1];
 
         float startX = transform.position.x;    
         float startY = transform.position.y;

@@ -146,10 +146,10 @@ public class PlayerMove : MonoBehaviour
                 colClassPlayerMove.isTotemRecruited = true;
 
             if(!colClassPlayerMove.isTotemStacked)
-                {
-                    classStackTotem.StackTotemInPos(col.gameObject);
-                    colClassPlayerMove.isTotemStacked = true;
-                }
+            {
+                classStackTotem.StackTotemInPos(col.gameObject);
+                colClassPlayerMove.isTotemStacked = true;
+            }
             
         }
     }
