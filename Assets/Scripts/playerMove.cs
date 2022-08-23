@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rig;
-    [SerializeField] bool isPlayerActive, canJumpAgain = false;
+    private bool canJumpAgain = false;
+    public string totemState;
+    public bool isTotemRecruited;
 
     public int totemID;
 
@@ -34,6 +36,7 @@ public class PlayerMove : MonoBehaviour
 
         playerSpeedMax = playerSpeed; 
         classPlayerChange = GetComponentInParent<PlayerChange>();
+        groundLayerMask = LayerMask.GetMask("Ground");
     }
 
     // Update is called once per frame
@@ -129,4 +132,12 @@ public class PlayerMove : MonoBehaviour
             rig.velocity += Vector2.up * Physics2D.gravity.y * jumpVelDecayLow * jumpTierFallReduction * Time.deltaTime;                // Start increasing downward velocity once player lets go of jump input
         
     }//// End of VelocityDecay()
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Totem")
+        {
+            Debug.Log("Collided into Totem");
+        }
+    }
 }

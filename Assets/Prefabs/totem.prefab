@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8647212585594872351}
   - component: {fileID: 8647212585594872344}
-  - component: {fileID: 8647212585594872345}
+  - component: {fileID: 6278576999202253817}
   - component: {fileID: 8647212585594872350}
   m_Layer: 0
   m_Name: totem
@@ -61,7 +61,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8647212585594872345
+--- !u!114 &6278576999202253817
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,12 +73,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fe269fc4fdc36499aedab01b226502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerActive: 0
-  canJumpAgain: 0
+  totemState: 
+  isTotemRecruited: 0
   totemID: 0
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   classPlayerChange: {fileID: 0}
 --- !u!50 &8647212585594872350
 Rigidbody2D:
