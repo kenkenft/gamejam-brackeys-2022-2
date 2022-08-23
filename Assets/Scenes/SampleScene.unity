@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: groundLayerMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8647212585594872344, guid: c50f5090fad58624685c7933a77316d2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8647212585594872348, guid: c50f5090fad58624685c7933a77316d2, type: 3}
       propertyPath: m_Name
       value: totem (1)
@@ -474,6 +478,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6278576999202253817, guid: c50f5090fad58624685c7933a77316d2, type: 3}
       propertyPath: groundLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647212585594872344, guid: c50f5090fad58624685c7933a77316d2, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8647212585594872345, guid: c50f5090fad58624685c7933a77316d2, type: 3}

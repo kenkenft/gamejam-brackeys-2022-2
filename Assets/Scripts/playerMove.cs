@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private bool canJumpAgain = false;
     public string totemState;
     public bool isTotemRecruited;
-
+    private PlayerMove colClassPlayerMove;
     public int totemID;
 
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
@@ -133,11 +133,15 @@ public class PlayerMove : MonoBehaviour
         
     }//// End of VelocityDecay()
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(collision.gameObject.tag == "Totem")
+        colClassPlayerMove = col.gameObject.GetComponent<PlayerMove>();
+        if(col.gameObject.tag == "Totem" && colClassPlayerMove.totemState == "inactive")
         {
-            Debug.Log("Collided into Totem");
+            Debug.Log("Collided into Totem: " + colClassPlayerMove.totemID);
+            if(!colClassPlayerMove.isTotemRecruited)
+                colClassPlayerMove.isTotemRecruited = true;
+            
         }
     }
 }
