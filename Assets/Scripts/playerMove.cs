@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rig;
     public bool isPlayerActive, canJumpAgain = false;
 
+    public int totemID;
+
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private BoxCollider2D playerCollider;
@@ -14,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer playerSprite;
 
     public LayerMask groundLayerMask;
+    public PlayerChange classPlayerChange;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,9 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
             Jump();
+
+        if(Input.GetKeyDown(KeyCode.C))
+            classPlayerChange.ChangeCharacter(totemID);
         
         VelocityDecay();                // Decays X, and Y velocities over time
     }
