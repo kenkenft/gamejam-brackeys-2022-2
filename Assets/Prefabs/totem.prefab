@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerActive: 0
   canJumpAgain: 0
-  totemID: 1
+  totemID: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &8647212587081715184
 GameObject:
   m_ObjectHideFlags: 0
