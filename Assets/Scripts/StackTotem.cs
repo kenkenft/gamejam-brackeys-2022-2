@@ -5,13 +5,18 @@ using UnityEngine;
 public class StackTotem : MonoBehaviour
 {
     private PlayerChange classPlayerChange;
-    private int maxTotemCount;
-    private List<GameObject> listStackedTotems;
+    private int maxTotemCount, countStackedTotems = 0;
+    private List<GameObject> listStackedTotems = new List<GameObject>{};
+    private List<GameObject> listStackPos = new List<GameObject>{};
     private GameObject posStackedTotem;
     private Vector3 posVector = new Vector3();
-    // Start is called before the first frame update
-    private float offsetTotemHeight;   //ToDo Set offsetTotemHeight to be whatever the sprite height is
+    private float offsetTotemHeight;
     void Start()
+    {
+        SetUpPositionMarkers();
+    }
+
+    void SetUpPositionMarkers()
     {
         classPlayerChange = GetComponentInParent<PlayerChange>();
         maxTotemCount = classPlayerChange.GetMaxTotemCount();
@@ -21,7 +26,6 @@ public class StackTotem : MonoBehaviour
         float startY = transform.position.y;
         for(int i = 0; i < maxTotemCount-1; i++)
         {
-
             posStackedTotem = new GameObject();
             posStackedTotem.transform.parent = transform;
             posStackedTotem.gameObject.name = "position " + i;
@@ -31,9 +35,14 @@ public class StackTotem : MonoBehaviour
             posVector[2] = 0f;
             posStackedTotem.transform.position = posVector;
 
+            listStackPos.Add(posStackedTotem);
         }
-        
     }
 
-    
+    public void StackTotemInPos(GameObject totem)
+    {
+        totem.transform.position = listStackPos[countStackedTotems].transform.position;
+        totem.transform.parent = listStackPos[countStackedTotems].transform;
+        countStackedTotems++;
+    }
 }

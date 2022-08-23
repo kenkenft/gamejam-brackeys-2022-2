@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rig;
     private bool canJumpAgain = false;
     public string totemState;
+    public bool isTotemStacked;
     public bool isTotemRecruited;
     private PlayerMove colClassPlayerMove;
     public int totemID;
@@ -19,6 +20,7 @@ public class PlayerMove : MonoBehaviour
 
     public LayerMask groundLayerMask;
     public PlayerChange classPlayerChange;
+    public StackTotem classStackTotem;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,7 @@ public class PlayerMove : MonoBehaviour
         playerSpeedMax = playerSpeed; 
         classPlayerChange = GetComponentInParent<PlayerChange>();
         groundLayerMask = LayerMask.GetMask("Ground");
+        classStackTotem = GetComponentInChildren<StackTotem>();
     }
 
     // Update is called once per frame
@@ -141,6 +144,12 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Collided into Totem: " + colClassPlayerMove.totemID);
             if(!colClassPlayerMove.isTotemRecruited)
                 colClassPlayerMove.isTotemRecruited = true;
+
+            if(!colClassPlayerMove.isTotemStacked)
+                {
+                    classStackTotem.StackTotemInPos(col.gameObject);
+                    colClassPlayerMove.isTotemStacked = true;
+                }
             
         }
     }
