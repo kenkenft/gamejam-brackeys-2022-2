@@ -12,7 +12,7 @@ public class PlayerChange : MonoBehaviour
     private int currentTotemID = 0, counter = 0, maxTotemCount = 0;
     private bool nextTotemFound;
     
-    void Start()
+    void Awake()
     {
         maxTotemCount = listTotems.Count;
         SetUpTotems();
