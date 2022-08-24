@@ -29,7 +29,7 @@ public class PlayerChange : MonoBehaviour
             // listClassPlayerMove[counter].enabled = false; // Should disable current active totem
             SetTotemState(false);
             SwitchNextAvailableTotem();
-            Debug.Log("Controlling Totem " + listClassStackTotem[counter].totemID);
+            // Debug.Log("Controlling Totem " + listClassStackTotem[counter].totemID);
         }
     }
 
@@ -50,18 +50,22 @@ public class PlayerChange : MonoBehaviour
             listTotemIDs.Add(listClassStackTotem[counter].totemID);
             if(listTotemIDs[counter] != 0)
             {
-                Debug.Log(listClassPlayerMove[counter].name + ": Totem ID not 0");                // listRigs[i].isKinematic = true;
+                // Debug.Log(listClassPlayerMove[counter].name + ": Totem ID not 0");                // listRigs[i].isKinematic = true;
                 listClassStackTotem[counter].isTotemRecruited = false;
+                // listRigs[counter].isKinematic = true;
+
                 SetTotemState(false);
             }
             else
             {
-                Debug.Log(listClassPlayerMove[counter].name + ": Totem ID is 0");                // listRigs[i].isKinematic = true;
+                // Debug.Log(listClassPlayerMove[counter].name + ": Totem ID is 0");                // listRigs[i].isKinematic = true;
                 listClassStackTotem[counter].isTotemRecruited = true;
+                // listRigs[counter].isKinematic = false;
+
                 SetTotemState(true);
             }
             listClassStackTotem[counter].isTotemStacked = false;
-            PrintTotemState();
+            // PrintTotemState();
         }
         counter = 0;
     }
@@ -78,6 +82,8 @@ public class PlayerChange : MonoBehaviour
 
             if(listClassStackTotem[counter].isTotemRecruited && !listClassStackTotem[counter].isTotemStacked)
             {
+                // listRigs[counter].isKinematic = false;
+
                 SetTotemState(true);
                 nextTotemFound = true;
             }
@@ -88,7 +94,7 @@ public class PlayerChange : MonoBehaviour
     private void SetTotemState(bool state)
     {
         listClassStackTotem[counter].totemState = state ? "active" : "inactive";
-        listRigs[counter].isKinematic = !state;
+        // listRigs[counter].isKinematic = !state;
         // listCols[counter].isTrigger = !state;
         listClassPlayerMove[counter].enabled = state;
     }
@@ -98,11 +104,20 @@ public class PlayerChange : MonoBehaviour
         Debug.Log(listClassPlayerMove[counter].name + " totemState: " + listClassStackTotem[counter].totemState);
         Debug.Log(listClassPlayerMove[counter].name + " isKinematic: " + listRigs[counter].isKinematic);
         Debug.Log(listClassPlayerMove[counter].name + " enabled: " + listClassPlayerMove[counter].enabled);
-
     }
 
     public void ChangeToTargetTotem(StackTotem currTotem, StackTotem nextTotem)
     {
-        Debug.Log("ChangeToTargetTotem called!");
+        // Debug.Log("ChangeToTargetTotem called!");
+
+        counter = listTotemIDs.IndexOf(currTotem.totemID);
+        // Debug.Log("currTotem returned index: " + counter);
+        SetTotemState(false);
+
+        counter = listTotemIDs.IndexOf(nextTotem.totemID);
+        listRigs[counter].isKinematic = false;
+        listClassStackTotem[counter].isTotemStacked = false;
+        // Debug.Log("currTotem returned index: " + counter);
+        SetTotemState(true);
     }
 }

@@ -46,6 +46,8 @@ public class StackTotem : MonoBehaviour
 
     public void StackTotemInPos(GameObject totem)
     {
+        totem.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
+        totem.GetComponent<Rigidbody2D>().isKinematic = true;
         totem.transform.position = listStackPos[countStackedTotems].transform.position;
         totem.transform.parent = listStackPos[countStackedTotems].transform;
         listStackedTotems.Add(totem);
@@ -61,7 +63,9 @@ public class StackTotem : MonoBehaviour
     {
         targetObject = listStackedTotems[0]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
         listStackedTotems.RemoveAt(0);
+        countStackedTotems--;
         targetObject.transform.parent = classPlayerChange.gameObject.transform;
+        targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
         // if(listStackedTotems.Count > 0)
         // {
         //     targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();

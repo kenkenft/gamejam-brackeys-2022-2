@@ -6,8 +6,6 @@ public class PlayerMove : MonoBehaviour
 {
     
     // private bool canJumpAgain = false;
-    // public string totemState;//Refactor
-    // public bool isTotemStacked, isTotemRecruited;//Refactor
     private StackTotem colClassStackTotem;
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
@@ -91,7 +89,7 @@ public class PlayerMove : MonoBehaviour
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
             targetTotem = classStackTotem.GetNextTotem();
-            Debug.Log("Next lowest totem: " + targetTotem.name);
+            // Debug.Log("Next lowest totem: " + targetTotem.name);
             targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump;
             // canJumpAgain = false;
             //audioManager.Play("playerDoubleJump");
@@ -141,12 +139,20 @@ public class PlayerMove : MonoBehaviour
         {
             // Debug.Log("Collided into Totem: " + colClassPlayerMove.name);
             if(!colClassStackTotem.isTotemRecruited)
+            {
                 colClassStackTotem.isTotemRecruited = true;
+                // colClassStackTotem.GetComponentInParent<PlayerMove>().enabled = true;
 
+            }
             if(!colClassStackTotem.isTotemStacked)
             {
-                classStackTotem.StackTotemInPos(col.gameObject);
-                colClassStackTotem.isTotemStacked = true;
+                Debug.Log("col.gameObject: " + col.gameObject.name + " Col Is not Null? " + (col.gameObject != null)+ " classStackTotem Is not Null? " + (classStackTotem != null));
+                if(classStackTotem.totemState == "active")
+                {
+                    classStackTotem.StackTotemInPos(col.gameObject);
+                    colClassStackTotem.isTotemStacked = true;
+                }
+                
             }
             
         }
