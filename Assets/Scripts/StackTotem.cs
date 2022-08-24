@@ -9,7 +9,7 @@ public class StackTotem : MonoBehaviour
     public bool isTotemStacked, isTotemRecruited;
 
     private PlayerChange classPlayerChange;
-    private int maxTotemCount, countStackedTotems = 0;
+    private int maxTotemCount, countStackedTotems = 0, listIndex;
     private List<GameObject> listStackedTotems = new List<GameObject>{};
     private List<GameObject> listStackPos = new List<GameObject>{};
     private GameObject targetObject;
@@ -59,19 +59,34 @@ public class StackTotem : MonoBehaviour
         return countStackedTotems;
     }
 
-    public GameObject GetNextTotem()
+    public GameObject GetNextTotem(string positionInStack)
     {
-        targetObject = listStackedTotems[0]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
-        listStackedTotems.RemoveAt(0);
-        countStackedTotems--;
+        listIndex = positionInStack == "bottom" ? 0 : countStackedTotems-1;
+        targetObject = listStackedTotems[listIndex]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
         targetObject.transform.parent = classPlayerChange.gameObject.transform;
+        RemoveTotemFromStackList(listIndex);
+
         targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
-        // if(listStackedTotems.Count > 0)
-        // {
-        //     targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
-        // }
+        if(positionInStack == "bottom")
+            TransferListToTargetTotem();
+
         classPlayerChange.ChangeToTargetTotem(this, targetClassStackTotem);
-        // MonoBehaviour thisComponent = this;
+
         return targetObject;
+    }
+
+    void TransferListToTargetTotem()
+    {
+        while(countStackedTotems > 0)
+        {
+            targetClassStackTotem.StackTotemInPos(listStackedTotems[0]);
+            RemoveTotemFromStackList(0);
+        }
+    }
+
+    void RemoveTotemFromStackList(int index)
+    {
+        listStackedTotems.RemoveAt(index);
+        countStackedTotems--;
     }
 }

@@ -88,7 +88,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
-            targetTotem = classStackTotem.GetNextTotem();
+            targetTotem = classStackTotem.GetNextTotem("bottom");
             // Debug.Log("Next lowest totem: " + targetTotem.name);
             targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump;
             // canJumpAgain = false;
