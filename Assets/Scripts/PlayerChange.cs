@@ -24,10 +24,9 @@ public class PlayerChange : MonoBehaviour
         if(maxTotemCount > 1)
         {
             listRigs[counter].isKinematic = true;
-            // listCols[counter].isTrigger = true;
             listClassPlayerMove[counter].totemState = "inactive";
             listClassPlayerMove[counter].enabled = false; // Should disable current active totem
-            FindNextAvailableTotem();
+            SwitchNextAvailableTotem();
             Debug.Log("Controlling Totem " + listClassPlayerMove[counter].totemID);
         }
     }
@@ -39,34 +38,32 @@ public class PlayerChange : MonoBehaviour
 
     void SetUpTotems()
     {
-        for(int i = 0; i < maxTotemCount; i++)
+        for(counter = 0; counter < maxTotemCount; counter++)
         {
-            listClassPlayerMove.Add(listTotems[i].GetComponentInChildren<PlayerMove>());
-            listRigs.Add(listClassPlayerMove[i].gameObject.GetComponent<Rigidbody2D>());
+            listClassPlayerMove.Add(listTotems[counter].GetComponentInChildren<PlayerMove>());
+            listRigs.Add(listClassPlayerMove[counter].gameObject.GetComponent<Rigidbody2D>());
             // listCols.Add(listClassPlayerMove[i].gameObject.GetComponent<Collider2D>());
 
-            listTotemIDs.Add(listClassPlayerMove[i].totemID);
-            if(listTotemIDs[i] != 0)
+            listTotemIDs.Add(listClassPlayerMove[counter].totemID);
+            if(listTotemIDs[counter] != 0)
             {
-                listRigs[i].isKinematic = true;
-                // listCols[i].isTrigger = true;
-                listClassPlayerMove[i].totemState = "inactive";
-                listClassPlayerMove[i].isTotemRecruited = false;
-                listClassPlayerMove[i].enabled = false;
+                // Debug.Log(listClassPlayerMove[counter].name + ": Totem ID not 0");                // listRigs[i].isKinematic = true;
+                listClassPlayerMove[counter].isTotemRecruited = false;
+                SetTotemState(false);
             }
             else
             {
-                listRigs[i].isKinematic = false;
-                // listCols[i].isTrigger = false;
-                listClassPlayerMove[i].totemState = "active";
-                listClassPlayerMove[i].isTotemRecruited = true;
-                listClassPlayerMove[i].enabled = true;
+                // Debug.Log(listClassPlayerMove[counter].name + ": Totem ID is 0");                // listRigs[i].isKinematic = true;
+                listClassPlayerMove[counter].isTotemRecruited = true;
+                SetTotemState(true);
             }
-            listClassPlayerMove[i].isTotemStacked = false;
+            listClassPlayerMove[counter].isTotemStacked = false;
+            // PrintTotemState();
         }
+        counter = 0;
     }
 
-    private void FindNextAvailableTotem()
+    private void SwitchNextAvailableTotem()
     {
         nextTotemFound = false;
         while(!nextTotemFound)
@@ -78,13 +75,31 @@ public class PlayerChange : MonoBehaviour
 
             if(listClassPlayerMove[counter].isTotemRecruited && !listClassPlayerMove[counter].isTotemStacked)
             {
-                listRigs[counter].isKinematic = false;
-                // listCols[counter].isTrigger = false;
-                listClassPlayerMove[counter].totemState = "active";
-                listClassPlayerMove[counter].enabled = true;
+                SetTotemState(true);
                 nextTotemFound = true;
             }
         }
         // return currCount;
-    } 
+    }
+
+    private void SetTotemState(bool state)
+    {
+        listClassPlayerMove[counter].totemState = state ? "active" : "inactive";
+        listRigs[counter].isKinematic = !state;
+        // listCols[counter].isTrigger = !state;
+        listClassPlayerMove[counter].enabled = state;
+    }
+
+    private void PrintTotemState()
+    {
+        Debug.Log(listClassPlayerMove[counter].name + " totemState: " + listClassPlayerMove[counter].totemState);
+        Debug.Log(listClassPlayerMove[counter].name + " isKinematic: " + listRigs[counter].isKinematic);
+        Debug.Log(listClassPlayerMove[counter].name + " enabled: " + listClassPlayerMove[counter].enabled);
+
+    }
+
+    public void ChangeToTargetTotem(StackTotem currTotem, StackTotem nextTotem)
+    {
+
+    }
 }

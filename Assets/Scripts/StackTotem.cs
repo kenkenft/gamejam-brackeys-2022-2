@@ -8,7 +8,8 @@ public class StackTotem : MonoBehaviour
     private int maxTotemCount, countStackedTotems = 0;
     private List<GameObject> listStackedTotems = new List<GameObject>{};
     private List<GameObject> listStackPos = new List<GameObject>{};
-    private GameObject emptyObject;
+    private GameObject targetObject;
+    private StackTotem targetClassStackTotem;
     private Vector3 posVector = new Vector3();
     private float offsetTotemHeight;
     void Start()
@@ -26,16 +27,16 @@ public class StackTotem : MonoBehaviour
         float startY = transform.position.y;
         for(int i = 0; i < maxTotemCount-1; i++)
         {
-            emptyObject = new GameObject();
-            emptyObject.transform.parent = transform;
-            emptyObject.gameObject.name = "position " + i;
+            targetObject = new GameObject();
+            targetObject.transform.parent = transform;
+            targetObject.gameObject.name = "position " + i;
 
             posVector[0] = startX;
             posVector[1] = startY + ((i + 1f) * offsetTotemHeight);
             posVector[2] = 0f;
-            emptyObject.transform.position = posVector;
+            targetObject.transform.position = posVector;
 
-            listStackPos.Add(emptyObject);
+            listStackPos.Add(targetObject);
         }
     }
 
@@ -54,8 +55,15 @@ public class StackTotem : MonoBehaviour
 
     public GameObject GetNextTotem()
     {
-        emptyObject = listStackedTotems[0]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
-
-        return emptyObject;
+        targetObject = listStackedTotems[0]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
+        listStackedTotems.RemoveAt(0);
+        targetObject.transform.parent = classPlayerChange.gameObject.transform;
+        // if(listStackedTotems.Count > 0)
+        // {
+        //     targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
+        // }
+        //classPlayerChange.ChangeToTargetTotem(this, targetClassStackTotem)
+        // MonoBehaviour thisComponent = this;
+        return targetObject;
     }
 }
