@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StackTotem : MonoBehaviour
 {
+    public int totemID;
+    public string totemState;
+    public bool isTotemStacked, isTotemRecruited;
+
     private PlayerChange classPlayerChange;
     private int maxTotemCount, countStackedTotems = 0;
     private List<GameObject> listStackedTotems = new List<GameObject>{};
@@ -62,7 +66,7 @@ public class StackTotem : MonoBehaviour
         // {
         //     targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
         // }
-        //classPlayerChange.ChangeToTargetTotem(this, targetClassStackTotem)
+        classPlayerChange.ChangeToTargetTotem(this, targetClassStackTotem);
         // MonoBehaviour thisComponent = this;
         return targetObject;
     }

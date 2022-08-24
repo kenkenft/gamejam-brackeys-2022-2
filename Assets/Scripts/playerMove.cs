@@ -6,10 +6,9 @@ public class PlayerMove : MonoBehaviour
 {
     
     // private bool canJumpAgain = false;
-    public string totemState;
-    public bool isTotemStacked, isTotemRecruited;
-    private PlayerMove colClassPlayerMove;
-    public int totemID;
+    // public string totemState;//Refactor
+    // public bool isTotemStacked, isTotemRecruited;//Refactor
+    private StackTotem colClassStackTotem;
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private Rigidbody2D rig;
@@ -93,7 +92,7 @@ public class PlayerMove : MonoBehaviour
         {
             targetTotem = classStackTotem.GetNextTotem();
             Debug.Log("Next lowest totem: " + targetTotem.name);
-            rig.velocity = Vector2.up * playerJump;
+            targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump;
             // canJumpAgain = false;
             //audioManager.Play("playerDoubleJump");
         }
@@ -137,17 +136,17 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        colClassPlayerMove = col.gameObject.GetComponent<PlayerMove>();
-        if(col.gameObject.tag == "Totem" && colClassPlayerMove.totemState == "inactive")
+        colClassStackTotem = col.gameObject.GetComponentInChildren<StackTotem>();
+        if(col.gameObject.tag == "Totem" && colClassStackTotem.totemState == "inactive")
         {
-            Debug.Log("Collided into Totem: " + colClassPlayerMove.totemID);
-            if(!colClassPlayerMove.isTotemRecruited)
-                colClassPlayerMove.isTotemRecruited = true;
+            // Debug.Log("Collided into Totem: " + colClassPlayerMove.name);
+            if(!colClassStackTotem.isTotemRecruited)
+                colClassStackTotem.isTotemRecruited = true;
 
-            if(!colClassPlayerMove.isTotemStacked)
+            if(!colClassStackTotem.isTotemStacked)
             {
                 classStackTotem.StackTotemInPos(col.gameObject);
-                colClassPlayerMove.isTotemStacked = true;
+                colClassStackTotem.isTotemStacked = true;
             }
             
         }

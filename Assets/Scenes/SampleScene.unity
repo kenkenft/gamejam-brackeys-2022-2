@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: groundLayerMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7197552607027690810, guid: c50f5090fad58624685c7933a77316d2, type: 3}
+      propertyPath: totemID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8647212585594872344, guid: c50f5090fad58624685c7933a77316d2, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -480,6 +484,10 @@ PrefabInstance:
       propertyPath: groundLayerMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7197552607027690810, guid: c50f5090fad58624685c7933a77316d2, type: 3}
+      propertyPath: totemID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8647212585594872344, guid: c50f5090fad58624685c7933a77316d2, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -550,6 +558,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8647212587081715186, guid: c50f5090fad58624685c7933a77316d2, type: 3}
       propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647212587081715186, guid: c50f5090fad58624685c7933a77316d2, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
