@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa6c4a40c3d7294a9b1fed12dd96de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totemID: 0
+  totemState: 
+  isTotemStacked: 0
+  isTotemRecruited: 0
 --- !u!1 &8647212585594872348
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +60,7 @@ GameObject:
   - component: {fileID: 8647212585594872344}
   - component: {fileID: 6278576999202253817}
   - component: {fileID: 8647212585594872350}
+  - component: {fileID: 4099516729647673791}
   m_Layer: 0
   m_Name: totem
   m_TagString: Totem
@@ -118,13 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fe269fc4fdc36499aedab01b226502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totemState: 
-  isTotemRecruited: 0
-  totemID: 0
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
   classPlayerChange: {fileID: 0}
+  classStackTotem: {fileID: 0}
 --- !u!50 &8647212585594872350
 Rigidbody2D:
   serializedVersion: 4
@@ -146,6 +149,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4099516729647673791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647212585594872348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde8bba44b5673042a164bc27a68f39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8647212587081715184
 GameObject:
   m_ObjectHideFlags: 0

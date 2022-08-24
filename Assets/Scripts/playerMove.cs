@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     
     // private bool canJumpAgain = false;
-    private StackTotem colClassStackTotem;
+    
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private Rigidbody2D rig;
@@ -132,29 +132,5 @@ public class PlayerMove : MonoBehaviour
         
     }//// End of VelocityDecay()
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        colClassStackTotem = col.gameObject.GetComponentInChildren<StackTotem>();
-        if(col.gameObject.tag == "Totem" && colClassStackTotem.totemState == "inactive")
-        {
-            // Debug.Log("Collided into Totem: " + colClassPlayerMove.name);
-            if(!colClassStackTotem.isTotemRecruited)
-            {
-                colClassStackTotem.isTotemRecruited = true;
-                // colClassStackTotem.GetComponentInParent<PlayerMove>().enabled = true;
-
-            }
-            if(!colClassStackTotem.isTotemStacked)
-            {
-                Debug.Log("col.gameObject: " + col.gameObject.name + " Col Is not Null? " + (col.gameObject != null)+ " classStackTotem Is not Null? " + (classStackTotem != null));
-                if(classStackTotem.totemState == "active")
-                {
-                    classStackTotem.StackTotemInPos(col.gameObject);
-                    colClassStackTotem.isTotemStacked = true;
-                }
-                
-            }
-            
-        }
-    }
+    
 }
