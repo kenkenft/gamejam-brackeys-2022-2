@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody2D rig;
+    
     // private bool canJumpAgain = false;
     public string totemState;
     public bool isTotemStacked, isTotemRecruited;
@@ -12,12 +12,14 @@ public class PlayerMove : MonoBehaviour
     public int totemID;
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
+    private Rigidbody2D rig;
     private BoxCollider2D playerCollider;
     private Vector2 directionAttack = Vector2.right;
     private SpriteRenderer playerSprite;
     public LayerMask groundLayerMask;
     public PlayerChange classPlayerChange;
     public StackTotem classStackTotem;
+    private GameObject targetTotem; 
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,8 @@ public class PlayerMove : MonoBehaviour
         }
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
+            targetTotem = classStackTotem.GetNextTotem();
+            Debug.Log("Next lowest totem: " + targetTotem.name);
             rig.velocity = Vector2.up * playerJump;
             // canJumpAgain = false;
             //audioManager.Play("playerDoubleJump");
