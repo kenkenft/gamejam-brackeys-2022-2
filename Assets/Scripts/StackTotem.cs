@@ -45,4 +45,9 @@ public class StackTotem : MonoBehaviour
         totem.transform.parent = listStackPos[countStackedTotems].transform;
         countStackedTotems++;
     }
+
+    public int GetCountStackedTotems()
+    {
+        return countStackedTotems;
+    }
 }

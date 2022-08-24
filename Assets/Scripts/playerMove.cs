@@ -5,19 +5,16 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rig;
-    private bool canJumpAgain = false;
+    // private bool canJumpAgain = false;
     public string totemState;
-    public bool isTotemStacked;
-    public bool isTotemRecruited;
+    public bool isTotemStacked, isTotemRecruited;
     private PlayerMove colClassPlayerMove;
     public int totemID;
-
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private BoxCollider2D playerCollider;
     private Vector2 directionAttack = Vector2.right;
     private SpriteRenderer playerSprite;
-
     public LayerMask groundLayerMask;
     public PlayerChange classPlayerChange;
     public StackTotem classStackTotem;
@@ -87,18 +84,17 @@ public class PlayerMove : MonoBehaviour
         if(IsGrounded())    // Jump whilst on ground
         {
             rig.velocity = Vector2.up * playerJump;
-            canJumpAgain = true; 
+            // canJumpAgain = true; 
             //audioManager.Play("playerJump");
         }
-        // else if(canJumpAgain)    // Jump a second time if in at least 2-totem stack
-        // {
-        //     rig.velocity = Vector2.up * playerJump;
-        //     canJumpAgain = false;
-        //     //audioManager.Play("playerDoubleJump");
-        // }
+        else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
+        {
+            rig.velocity = Vector2.up * playerJump;
+            // canJumpAgain = false;
+            //audioManager.Play("playerDoubleJump");
+        }
 
     }
-
     bool IsGrounded ()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayerMask);
@@ -106,7 +102,6 @@ public class PlayerMove : MonoBehaviour
             return true;
         return false;
     }//// End of IsGrounded()
-
 
     void ClampSpeed(float moveAmount, float speedLimit)
     {
