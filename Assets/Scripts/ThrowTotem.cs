@@ -18,9 +18,8 @@ public class ThrowTotem : MonoBehaviour
 
     public void SetUpThrow(Vector2 directionAttack)
     {
-        Debug.Log("TossTopTotem called!");
         targetTotem = classStackTotem.GetNextTotem("Top");
-        throwVector[0] *= directionAttack[0]; 
+        throwVector[0] = directionAttack[0] == -1 ? -1 : 1; // Throw Leftwards if -1, else assume throw towards Rightwards
         TossTopTotem();
     }
 
