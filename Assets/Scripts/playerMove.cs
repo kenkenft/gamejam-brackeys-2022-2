@@ -49,7 +49,7 @@ public class PlayerMove : MonoBehaviour
             Jump();
 
         if(Input.GetKeyDown(KeyCode.K) && classStackTotem.GetCountStackedTotems() > 0)
-            classThrowTotem.TossTopTotem();
+            classThrowTotem.SetUpThrow(directionAttack);
 
         if(Input.GetKeyDown(KeyCode.J))
             classPlayerChange.ChangeCharacter();
@@ -88,15 +88,13 @@ public class PlayerMove : MonoBehaviour
         if(IsGrounded())    // Jump whilst on ground
         {
             rig.velocity = Vector2.up * playerJump;
-            // canJumpAgain = true; 
             //audioManager.Play("playerJump");
         }
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
             targetTotem = classStackTotem.GetNextTotem("bottom");
-            // Debug.Log("Next lowest totem: " + targetTotem.name);
             targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump;
-            // canJumpAgain = false;
+            classPlayerChange.ChangeToTargetTotem(classStackTotem, targetTotem.GetComponentInChildren<StackTotem>());
             //audioManager.Play("playerDoubleJump");
         }
 
