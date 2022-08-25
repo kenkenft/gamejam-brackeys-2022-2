@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     public LayerMask groundLayerMask;
     public PlayerChange classPlayerChange;
     public StackTotem classStackTotem;
+    public ThrowTotem classThrowTotem;
     private GameObject targetTotem; 
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PlayerMove : MonoBehaviour
         classPlayerChange = GetComponentInParent<PlayerChange>();
         groundLayerMask = LayerMask.GetMask("Ground");
         classStackTotem = GetComponentInChildren<StackTotem>();
+        classThrowTotem = GetComponent<ThrowTotem>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,10 @@ public class PlayerMove : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
             Jump();
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.K) && classStackTotem.GetCountStackedTotems() > 0)
+            classThrowTotem.TossTopTotem();
+
+        if(Input.GetKeyDown(KeyCode.J))
             classPlayerChange.ChangeCharacter();
         
         VelocityDecay();                // Decays X, and Y velocities over time

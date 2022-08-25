@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\TotemCollision.cs" />
      <Compile Include="Assets\Scripts\StackTotem.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\Scripts\ThrowTotem.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
