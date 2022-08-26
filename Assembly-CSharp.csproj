@@ -36,17 +36,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\UIStageSelect.cs" />
      <Compile Include="Assets\Scripts\PlayerChange.cs" />
+     <Compile Include="Assets\Scripts\UIManagerStage.cs" />
+     <Compile Include="Assets\Scripts\UIManagerMainMenu.cs" />
+     <Compile Include="Assets\Scripts\FinishLevel.cs" />
      <Compile Include="Assets\Scripts\TotemCollision.cs" />
+     <Compile Include="Assets\Scripts\ThrowTotem.cs" />
      <Compile Include="Assets\Scripts\StackTotem.cs" />
      <Compile Include="Assets\Scripts\PlayerMove.cs" />
-     <Compile Include="Assets\Scripts\ThrowTotem.cs" />
-     <Compile Include="Assets\Scripts\FinishLevel.cs" />
      <Compile Include="Assets\Scripts\UITitle.cs" />
-     <Compile Include="Assets\Scripts\UIManagerMainMenu.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
-     <Compile Include="Assets\Scripts\UIManagerStage.cs" />
-     <Compile Include="Assets\Scripts\UIStageSelect.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
