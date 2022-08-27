@@ -47,7 +47,7 @@
      <Compile Include="Assets\Scripts\TotemCollision.cs" />
      <Compile Include="Assets\Scripts\ThrowTotem.cs" />
      <Compile Include="Assets\Scripts\StackTotem.cs" />
-     <Compile Include="Assets\Scripts\PlayerMove.cs" />
+     <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\UI\UITitle.cs" />
      <Compile Include="Assets\Scripts\UI\UIManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

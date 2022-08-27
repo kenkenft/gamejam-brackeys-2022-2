@@ -556,7 +556,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864636756933340483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 484669240604834968}
+        m_TargetAssemblyTypeName: UIManagerStage, Assembly-CSharp
+        m_MethodName: SetPauseOverlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &864636757236610793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,9 +1543,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStageSelect, GameAssembly
-        m_MethodName: NavigateToMainMenu
+      - m_Target: {fileID: 3295471337484952657}
+        m_TargetAssemblyTypeName: UIPauseMenu, Assembly-CSharp
+        m_MethodName: ReturnToMainLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
