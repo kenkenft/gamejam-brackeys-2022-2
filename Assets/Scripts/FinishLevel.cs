@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinishLevel : MonoBehaviour
 {
-    public string nextSceneName;
+    public int nextLevelNum;
     public bool isLastLevel;
     public UIManagerStage classUIManagerStage;
 
@@ -19,7 +19,7 @@ public class FinishLevel : MonoBehaviour
         if(other.CompareTag("Totem"))
         {
             Debug.Log("Level completed: Load next level");
-            classUIManagerStage.TriggerEndgame(isLastLevel);
+            classUIManagerStage.TriggerEndgame(nextLevelNum, isLastLevel);
         }
     }
 }

@@ -7,41 +7,43 @@ using UnityEngine.SceneManagement;
 
 public class UIEndgame : MonoBehaviour
 {
-    private TextMeshProUGUI messageEndgame;
+    private Button buttonMainMenu, buttonNext;
+    private int nextLevel;
     void Awake()
     {
-        TextMeshProUGUI[] allText = GetComponentsInChildren<TextMeshProUGUI>();
-        foreach(TextMeshProUGUI textUI  in allText)
+        Button[] allButtons = GetComponentsInChildren<Button>();
+        foreach(Button button in allButtons)
         {
-            if(textUI.name == "endgameMessage")
-                messageEndgame = textUI;
+            if(button.name == "buttonMainMenu")
+                buttonMainMenu = button;
+            
+            if(button.name == "buttonNext")
+                buttonNext = button;
         }
-        // messageEndgame.SetText("Default Message");
+
     }
 
-    public void SetEndgameMessage()
+    public void SetEndgameScreen(int levelNum, bool isLastLevel)
     {
         Debug.Log("You beat the level!");
-        // messageEndgame.SetText("You beat the level!");
-    }
-
-    public void RetryLevel()
-    {
-        // Method that resets current level and re-enables UIScoring overlays.
-        Debug.Log("Retry level button clicked!");
+        if(isLastLevel)
+        {    
+            buttonNext.enabled = false;
+            buttonNext.gameObject.SetActive(false);
+            buttonMainMenu.transform.position = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f,0f);
+        }
+        else
+            nextLevel = levelNum;
     }
 
     public void GoToNextLevel()
     {
-        // Method that clears current level and loads the next level.
-        Debug.Log("Go to next level button clicked!");
-        // SceneManager.LoadScene(nextSceneName);
-
+        SceneManager.LoadScene(nextLevel);
     }
 
     public void ReturnToMainLevel()
     {
-        // Method that navigates to main level scene.
         Debug.Log("Return to main level button clicked!");
+        SceneManager.LoadScene(0);
     }
 }

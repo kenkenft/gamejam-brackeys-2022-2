@@ -22,12 +22,12 @@ public class UIManagerStage : UIManager
         SetOverlayState("overlayPauseMenu", false);
     }
 
-    public void TriggerEndgame(bool isLastLevel)
+    public void TriggerEndgame(int levelNum, bool isLastLevel)
     {
         // Method called externally that disables the UIScoring canvas and then enables UIEndgame canvas
         isLevelFinished = false;  // To be used when user attempts to pause game on overlayPause.
         SetOverlayState("overlayInLevel", false);
         SetOverlayState("overlayEndgame", true);
-        FindObjectOfType<UIEndgame>().SetEndgameMessage();
+        FindObjectOfType<UIEndgame>().SetEndgameScreen(levelNum, isLastLevel);
     }
 }
