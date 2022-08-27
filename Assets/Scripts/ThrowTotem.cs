@@ -7,7 +7,7 @@ public class ThrowTotem : MonoBehaviour
     public StackTotem classStackTotem;
     private GameObject targetTotem;
     private float throwPower = 6f;
-    private Vector2 throwVector = new Vector2(1f,0.5f);
+    private Vector2 throwVector = new Vector2(1f,1f);
     private Rigidbody2D rig;
     
     void Start()

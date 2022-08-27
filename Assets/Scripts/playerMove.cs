@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     
     // private bool canJumpAgain = false;
     
-    private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 8.0f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
+    private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 5.5f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private Rigidbody2D rig;
     private BoxCollider2D playerCollider;
