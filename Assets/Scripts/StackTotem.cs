@@ -13,8 +13,9 @@ public class StackTotem : MonoBehaviour
     private List<GameObject> listStackedTotems = new List<GameObject>{};
     private List<GameObject> listStackPos = new List<GameObject>{};
     private GameObject targetObject;
-    private StackTotem targetClassStackTotem;
+    private StackTotem targetClassStackTotem, donorStack, recipientStack;
     private Vector3 posVector = new Vector3();
+    private Rigidbody2D targetRig;
     private float offsetTotemHeight;
     void Start()
     {
@@ -46,13 +47,25 @@ public class StackTotem : MonoBehaviour
 
     public void StackTotemInPos(GameObject totem)
     {
-        totem.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
-        totem.GetComponent<Rigidbody2D>().isKinematic = true;
         totem.transform.position = listStackPos[countStackedTotems].transform.position;
         totem.transform.parent = listStackPos[countStackedTotems].transform;
+
+        targetRig = totem.GetComponent<Rigidbody2D>();
+        targetRig.velocity = new Vector3(0,0,0);
+        targetRig.isKinematic = true;
+
+        targetClassStackTotem = totem.GetComponentInChildren<StackTotem>();
+       
         listStackedTotems.Add(totem);
         totem.GetComponentInChildren<StackTotem>().isTotemStacked = true; 
         countStackedTotems++;
+
+        // ToDoCheck for nested totems
+        if(targetClassStackTotem.GetCountStackedTotems() > 0)
+        {
+            Debug.Log("Nested totems detected");
+            TransferListToTargetTotem(targetClassStackTotem, this);
+        }
     }
 
     public int GetCountStackedTotems()
@@ -66,29 +79,30 @@ public class StackTotem : MonoBehaviour
         targetObject = listStackedTotems[listIndex]; // Element 0 should be the "bottom" of the stack (excluding the active totem)
         targetObject.transform.parent = classPlayerChange.gameObject.transform;
         targetClassStackTotem = targetObject.GetComponentInChildren<StackTotem>();
-        RemoveTotemFromStackList(listIndex);
+        RemoveTotemFromStackList(listIndex, this); 
         
 
         if(positionInStack == "bottom")
-            TransferListToTargetTotem();
+            TransferListToTargetTotem(this, targetClassStackTotem);
 
         return targetObject;
     }
 
-    void TransferListToTargetTotem()
+    void TransferListToTargetTotem(StackTotem donorStack, StackTotem recipientStack)
     {
-        
-        while(countStackedTotems > 0)
+        while(donorStack.countStackedTotems > 0)
         {
-            targetClassStackTotem.StackTotemInPos(listStackedTotems[0]);
-            RemoveTotemFromStackList(0);
+            recipientStack.StackTotemInPos(donorStack.listStackedTotems[0]);
+            RemoveTotemFromStackList(0, donorStack);
         }
     }
 
-    void RemoveTotemFromStackList(int index)
+    void RemoveTotemFromStackList(int index, StackTotem donorStack)
     {
-        targetClassStackTotem.isTotemStacked = false;
-        listStackedTotems.RemoveAt(index);
-        countStackedTotems--;
+        donorStack.isTotemStacked = false;
+        donorStack.listStackedTotems.RemoveAt(index);
+        donorStack.countStackedTotems--;
     }
+
+    
 }
