@@ -15,11 +15,18 @@ public class UIManagerStage : UIManager
         dictAllOverlays.Add("overlayPauseMenu", GetComponentInChildren<UIPauseMenu>().gameObject.GetComponent<Canvas>());
     }
 
-    public void TriggerEndgame()
+    void Start()
+    {
+        SetOverlayState("overlayInLevel", true);
+        SetOverlayState("overlayEndgame", false);
+        SetOverlayState("overlayPauseMenu", false);
+    }
+
+    public void TriggerEndgame(bool isLastLevel)
     {
         // Method called externally that disables the UIScoring canvas and then enables UIEndgame canvas
         isLevelFinished = false;  // To be used when user attempts to pause game on overlayPause.
-        SetOverlayState("overlayLevelMessages", false);
+        SetOverlayState("overlayInLevel", false);
         SetOverlayState("overlayEndgame", true);
         FindObjectOfType<UIEndgame>().SetEndgameMessage();
     }

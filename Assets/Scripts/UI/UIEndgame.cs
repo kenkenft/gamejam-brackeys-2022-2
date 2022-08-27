@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIEndgame : MonoBehaviour
 {
     private TextMeshProUGUI messageEndgame;
-    void Start()
+    void Awake()
     {
         TextMeshProUGUI[] allText = GetComponentsInChildren<TextMeshProUGUI>();
         foreach(TextMeshProUGUI textUI  in allText)
@@ -15,12 +16,13 @@ public class UIEndgame : MonoBehaviour
             if(textUI.name == "endgameMessage")
                 messageEndgame = textUI;
         }
-        messageEndgame.SetText("Default Message");
+        // messageEndgame.SetText("Default Message");
     }
 
     public void SetEndgameMessage()
     {
-        messageEndgame.SetText("You beat the level!");
+        Debug.Log("You beat the level!");
+        // messageEndgame.SetText("You beat the level!");
     }
 
     public void RetryLevel()
@@ -33,6 +35,8 @@ public class UIEndgame : MonoBehaviour
     {
         // Method that clears current level and loads the next level.
         Debug.Log("Go to next level button clicked!");
+        // SceneManager.LoadScene(nextSceneName);
+
     }
 
     public void ReturnToMainLevel()
