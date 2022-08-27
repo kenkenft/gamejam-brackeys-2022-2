@@ -439,6 +439,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971224313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3295471337484952657, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+  m_PrefabInstance: {fileID: 4925310592718570857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a72ba2a4eb44549b1a736da96fdddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &984222102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -815,6 +826,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIEndgame, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 971224313}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIPauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636756933340482, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 864636757769557902, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -830,6 +869,18 @@ PrefabInstance:
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSize
       value: 44.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636758109033441, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 971224313}
+    - target: {fileID: 864636758109033441, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636758109033441, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIPauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2573777754025061506, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -914,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347373868321128822, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}
       propertyPath: isLastLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}

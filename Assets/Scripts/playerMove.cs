@@ -19,6 +19,8 @@ public class PlayerMove : MonoBehaviour
     public ThrowTotem classThrowTotem;
     private GameObject targetTotem; 
 
+    private UIManagerStage classUIManagerStage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class PlayerMove : MonoBehaviour
         groundLayerMask = LayerMask.GetMask("Ground");
         classStackTotem = GetComponentInChildren<StackTotem>();
         classThrowTotem = GetComponent<ThrowTotem>();
+        classUIManagerStage = FindObjectOfType<UIManagerStage>();
     }
 
     // Update is called once per frame
@@ -55,6 +58,9 @@ public class PlayerMove : MonoBehaviour
             classPlayerChange.ChangeCharacter();
         
         VelocityDecay();                // Decays X, and Y velocities over time
+
+        if(Input.GetKeyDown(KeyCode.P))
+            classUIManagerStage.SetPauseOverlay();
     }
 
     void Move()
@@ -76,15 +82,13 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-                moveAmount = faceDirection * playerSpeed;
-                ClampSpeed(moveAmount, playerSpeedMax);
+            moveAmount = faceDirection * playerSpeed;
+            ClampSpeed(moveAmount, playerSpeedMax);
         }
     }
 
     void Jump()
     {
-        // float jump = playerJump * (1 + (1 * unlockedTraits[0,1] * tier1JumpBonus));    // Calculate jump power. Player jumps higher if Tier 1 jump is unlocked
-
         if(IsGrounded())    // Jump whilst on ground
         {
             rig.velocity = Vector2.up * playerJump;
@@ -134,6 +138,4 @@ public class PlayerMove : MonoBehaviour
             rig.velocity += Vector2.up * Physics2D.gravity.y * jumpVelDecayLow * jumpTierFallReduction * Time.deltaTime;                // Start increasing downward velocity once player lets go of jump input
         
     }//// End of VelocityDecay()
-
-    
 }

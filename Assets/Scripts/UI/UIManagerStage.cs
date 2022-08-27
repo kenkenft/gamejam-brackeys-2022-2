@@ -5,14 +5,22 @@ using UnityEngine;
 public class UIManagerStage : UIManager
 {
     public GameObject overlayInLevel, overlayEndGame, overlayPauseMenu;
+    private UIInLevel classUIInLevel;
+    private UIEndgame classUIEndgame;
+    private UIPauseMenu classUIPauseMenu;
+    private bool isGamePaused;
 
     public bool isLevelFinished;
     void Awake()
     {
         isLevelFinished = false;
-        dictAllOverlays.Add("overlayInLevel", GetComponentInChildren<UIInLevel>().gameObject.GetComponent<Canvas>());
-        dictAllOverlays.Add("overlayEndgame", GetComponentInChildren<UIEndgame>().gameObject.GetComponent<Canvas>());
-        dictAllOverlays.Add("overlayPauseMenu", GetComponentInChildren<UIPauseMenu>().gameObject.GetComponent<Canvas>());
+        isGamePaused = false;
+        classUIInLevel = GetComponentInChildren<UIInLevel>();
+        classUIEndgame = GetComponentInChildren<UIEndgame>();
+        classUIPauseMenu = GetComponentInChildren<UIPauseMenu>();
+        dictAllOverlays.Add("overlayInLevel", classUIInLevel.gameObject.GetComponent<Canvas>());
+        dictAllOverlays.Add("overlayEndgame", classUIEndgame.gameObject.GetComponent<Canvas>());
+        dictAllOverlays.Add("overlayPauseMenu", classUIPauseMenu.gameObject.GetComponent<Canvas>());
     }
 
     void Start()
@@ -28,6 +36,20 @@ public class UIManagerStage : UIManager
         isLevelFinished = false;  // To be used when user attempts to pause game on overlayPause.
         SetOverlayState("overlayInLevel", false);
         SetOverlayState("overlayEndgame", true);
-        FindObjectOfType<UIEndgame>().SetEndgameScreen(levelNum, isLastLevel);
+        classUIEndgame.SetEndgameScreen(levelNum, isLastLevel);
+    }
+
+    public void SetPauseOverlay()
+    {
+        if(!isLevelFinished)
+        {
+            isGamePaused = !isGamePaused;
+            SetOverlayState("overlayInLevel", !isGamePaused);
+            SetOverlayState("overlayPauseMenu", isGamePaused);
+            if(isGamePaused)
+                classUIPauseMenu.PauseGame();
+            else
+                classUIPauseMenu.ContinueGame();
+        }
     }
 }
