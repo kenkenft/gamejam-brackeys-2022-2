@@ -95,7 +95,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8647212585594872348}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 326720797be8f1946b8ae0ecea222082, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
     m_Bits: 0
   classPlayerChange: {fileID: 0}
   classStackTotem: {fileID: 0}
+  classThrowTotem: {fileID: 0}
 --- !u!50 &8647212585594872350
 Rigidbody2D:
   serializedVersion: 4
@@ -175,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c85e6a83b75acd488bdaa03bbd16430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classStackTotem: {fileID: 0}
 --- !u!1 &8647212587081715184
 GameObject:
   m_ObjectHideFlags: 0
