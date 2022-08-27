@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_text
-      value: 'Level 2: Totem Throw'
+      value: 'Level 4: Let''s review...'
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSize
@@ -1446,9 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7907456514410637691, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_text
-      value: 'Press K to throw
-
-        Press J to switch totem'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9021457179805952360, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_SizeDelta.x
