@@ -97,7 +97,7 @@ public class PlayerMove : MonoBehaviour
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
             targetTotem = classStackTotem.GetNextTotem("bottom");
-            targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump;
+            targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump * 1.2f;
             classPlayerChange.ChangeToTargetTotem(classStackTotem, targetTotem.GetComponentInChildren<StackTotem>());
             //audioManager.Play("playerDoubleJump");
         }
