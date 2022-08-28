@@ -58,10 +58,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8647212585594872351}
   - component: {fileID: 8647212585594872344}
-  - component: {fileID: 6278576999202253817}
   - component: {fileID: 8647212585594872350}
   - component: {fileID: 4099516729647673791}
   - component: {fileID: 8796556075790529060}
+  - component: {fileID: 6475839521634150636}
   m_Layer: 0
   m_Name: totem
   m_TagString: Totem
@@ -112,24 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6278576999202253817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647212585594872348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fe269fc4fdc36499aedab01b226502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  classPlayerChange: {fileID: 0}
-  classStackTotem: {fileID: 0}
-  classThrowTotem: {fileID: 0}
 --- !u!50 &8647212585594872350
 Rigidbody2D:
   serializedVersion: 4
@@ -177,6 +159,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classStackTotem: {fileID: 0}
+  audioManager: {fileID: 0}
+--- !u!114 &6475839521634150636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647212585594872348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cb83f58838b3b458554f43de5f4360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  classPlayerChange: {fileID: 0}
+  classStackTotem: {fileID: 0}
+  classThrowTotem: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!1 &8647212587081715184
 GameObject:
   m_ObjectHideFlags: 0

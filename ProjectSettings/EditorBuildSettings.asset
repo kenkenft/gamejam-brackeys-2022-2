@@ -19,5 +19,8 @@ EditorBuildSettings:
     guid: 7bb46714385cc6744851bf17612b794c
   - enabled: 1
     path: Assets/Scenes/level4_multijump.unity
+    guid: dee38d35bb75f68459226ec26ed794e7
+  - enabled: 1
+    path: Assets/Scenes/level5_last.unity
     guid: ecaf3287da847574badcbf8d18372ed3
   m_configObjects: {}
