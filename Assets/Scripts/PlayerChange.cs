@@ -12,6 +12,7 @@ public class PlayerChange : MonoBehaviour
     // private List<Collider2D> listCols = new List<Collider2D>{};
     private int currentTotemID = 0, counter = 0, maxTotemCount = 0;
     private bool nextTotemFound;
+    private AudioManager audioManager;
     
     void Awake()
     {
@@ -27,6 +28,11 @@ public class PlayerChange : MonoBehaviour
         maxTotemCount = listTotems.Count;
         // GameObject[] allTotemsArray = GameObject.FindGameObjectsWithTag("Totem");
         SetUpTotems();
+    }
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
     }
     
     void SetUpTotems()
@@ -90,6 +96,7 @@ public class PlayerChange : MonoBehaviour
             {
                 SetTotemState(true);
                 nextTotemFound = true;
+                audioManager.Play("switchTotem");
             }
         }
     }

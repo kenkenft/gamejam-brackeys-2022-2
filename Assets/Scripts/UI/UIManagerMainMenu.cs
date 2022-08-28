@@ -19,6 +19,11 @@ public class UIManagerMainMenu : UIManager
         // SetOverlayState(overlayStageSelect.name, false);
     }
 
+    void Start()
+    {
+        SetUpAudioManager();
+    }
+
     public void SwitchUIOverlay(string overlayTarget, string overlayPrev)
     {
         // Method that enables target overlay, and disables previous overlay

@@ -9,10 +9,12 @@ public class ThrowTotem : MonoBehaviour
     private float throwPower = 8f;
     private Vector2 throwVector = new Vector2(1f,0.70f);
     private Rigidbody2D rig;
+    public AudioManager audioManager;
     
     void Start()
     {
         classStackTotem = GetComponentInChildren<StackTotem>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
 
@@ -29,5 +31,7 @@ public class ThrowTotem : MonoBehaviour
         rig = targetTotem.GetComponent<Rigidbody2D>();
         rig.isKinematic = false;
         rig.velocity = throwVector * throwPower;
+        audioManager.Play("playerThrow");
+
     }
 }

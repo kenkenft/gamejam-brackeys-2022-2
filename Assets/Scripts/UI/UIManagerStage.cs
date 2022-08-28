@@ -26,17 +26,19 @@ public class UIManagerStage : UIManager
 
     void Start()
     {
+        SetUpAudioManager();
         SetOverlayState("overlayInLevel", true);
         SetOverlayState("overlayEndgame", false);
-        SetOverlayState("overlayPauseMenu", false);
+        SetOverlayState("overlayPauseMenu", false); 
     }
 
     public void TriggerEndgame(int levelNum, bool isLastLevel)
     {
-        // Method called externally that disables the UIScoring canvas and then enables UIEndgame canvas
         isLevelFinished = false;  // To be used when user attempts to pause game on overlayPause.
         SetOverlayState("overlayInLevel", false);
         SetOverlayState("overlayEndgame", true);
+
+        audioManager.Play("endgameTrigger");
         classUIEndgame.SetEndgameScreen(levelNum, isLastLevel);
     }
 

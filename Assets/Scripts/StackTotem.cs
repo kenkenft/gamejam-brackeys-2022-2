@@ -17,9 +17,12 @@ public class StackTotem : MonoBehaviour
     private Vector3 posVector = new Vector3();
     private Rigidbody2D targetRig;
     private float offsetTotemHeight;
+
+    private AudioManager audioManager;
     void Start()
     {
         SetUpPositionMarkers();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void SetUpPositionMarkers()
@@ -66,6 +69,8 @@ public class StackTotem : MonoBehaviour
             Debug.Log("Nested totems detected");
             TransferListToTargetTotem(targetClassStackTotem, this);
         }
+
+        audioManager.Play("totemStack");
     }
 
     public int GetCountStackedTotems()

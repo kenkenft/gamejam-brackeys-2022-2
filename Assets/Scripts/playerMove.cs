@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     private GameObject targetTotem; 
 
     private UIManagerStage classUIManagerStage;
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +30,6 @@ public class PlayerMove : MonoBehaviour
         playerCollider = GetComponent<BoxCollider2D>(); // Get player collider width for use positioning the rays for the IsGrounded function 
         playerColliderWidth = playerCollider.size[0];
         playerColliderWidthOffset = playerColliderWidth + 0.1f;
-
-        // Spawns totem characters to preset positions per level
-        // doorManager = FindObjectOfType<DoorManager>();
-        // transform.position = doorManager.GetSpawnPosition();
         playerSprite = GetComponent<SpriteRenderer>();
 
         playerSpeedMax = playerSpeed; 
@@ -41,6 +38,7 @@ public class PlayerMove : MonoBehaviour
         classStackTotem = GetComponentInChildren<StackTotem>();
         classThrowTotem = GetComponent<ThrowTotem>();
         classUIManagerStage = FindObjectOfType<UIManagerStage>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -52,7 +50,7 @@ public class PlayerMove : MonoBehaviour
             Jump();
 
         if(Input.GetKeyDown(KeyCode.K) && classStackTotem.GetCountStackedTotems() > 0)
-            classThrowTotem.SetUpThrow(directionAttack);
+                classThrowTotem.SetUpThrow(directionAttack);
 
         if(Input.GetKeyDown(KeyCode.J))
             classPlayerChange.ChangeCharacter();
@@ -92,14 +90,14 @@ public class PlayerMove : MonoBehaviour
         if(IsGrounded())    // Jump whilst on ground
         {
             rig.velocity = Vector2.up * playerJump;
-            //audioManager.Play("playerJump");
+            audioManager.Play("playerJump");
         }
         else if(classStackTotem.GetCountStackedTotems() > 0)    // Jump a second time if in at least 2-totem stack
         {
             targetTotem = classStackTotem.GetNextTotem("bottom");
             targetTotem.GetComponent<Rigidbody2D>().velocity = Vector2.up * playerJump * 1.2f;
             classPlayerChange.ChangeToTargetTotem(classStackTotem, targetTotem.GetComponentInChildren<StackTotem>());
-            //audioManager.Play("playerDoubleJump");
+            audioManager.Play("playerDoubleJump");
         }
 
     }

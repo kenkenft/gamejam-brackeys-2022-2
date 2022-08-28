@@ -45,53 +45,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: playerJump
+    clip: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: playerDoubleJump
+    clip: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: playerThrow
+    clip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: endgameTrigger
+    clip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: totemStack
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: switchOverlays
+    clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+  - name: switchTotem
+    clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    source: {fileID: 0}
-    volume: 0
-    pitch: 0
-  - name: 
-    clip: {fileID: 0}
-    source: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.5
+    pitch: 1
