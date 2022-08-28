@@ -13,6 +13,7 @@ public class UIManagerStage : UIManager
     public bool isLevelFinished;
     void Awake()
     {
+        Time.timeScale = 1;
         isLevelFinished = false;
         isGamePaused = false;
         classUIInLevel = GetComponentInChildren<UIInLevel>();

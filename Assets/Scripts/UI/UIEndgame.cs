@@ -34,6 +34,8 @@ public class UIEndgame : MonoBehaviour
         }
         else
             nextLevel = levelNum;
+        
+        Time.timeScale = 0;
     }
 
     public void GoToNextLevel()

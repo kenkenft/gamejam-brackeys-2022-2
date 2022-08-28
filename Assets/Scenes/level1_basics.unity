@@ -810,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_text
-      value: 'Level 1: Basics'
+      value: 'Level 1: Totem basics'
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSize

@@ -846,5 +846,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: finishLevelTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 6347373868321128820, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}
