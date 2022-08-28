@@ -23,7 +23,7 @@ public class UIStageSelect : MonoBehaviour
 
     public void SetUpButtonReference(Button targetButton)
     {
-        // Method that sets up button references and dictionary string-Button pairs // Might need this for Stage progression
+        // Method that sets up button references and dictionary string-Button pairs
         switch(targetButton.name)
         {
             case "buttonBack":

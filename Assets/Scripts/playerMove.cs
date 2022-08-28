@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
-{
-    
-    // private bool canJumpAgain = false;
-    
+{    
     private float playerSpeed = 3f, speedDecayMultiplier = 0.95f, playerJump = 5.5f, jumpVelDecayHigh = 1.4f, jumpVelDecayLow = 1.7f, 
     playerColliderWidth, playerColliderWidthOffset, faceDirection, playerSpeedMax, jumpTierFallReduction = 1f;       
     private Rigidbody2D rig;
@@ -22,7 +19,6 @@ public class PlayerMove : MonoBehaviour
     private UIManagerStage classUIManagerStage;
     public AudioManager audioManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -41,7 +37,6 @@ public class PlayerMove : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

@@ -15,11 +15,7 @@ public class FinishLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("FinishLevel");
         if(other.CompareTag("Totem"))
-        {
-            Debug.Log("Level completed: Load next level");
             classUIManagerStage.TriggerEndgame(nextLevelNum, isLastLevel);
-        }
     }
 }

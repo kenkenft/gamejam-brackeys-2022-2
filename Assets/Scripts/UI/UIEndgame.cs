@@ -25,7 +25,6 @@ public class UIEndgame : MonoBehaviour
 
     public void SetEndgameScreen(int levelNum, bool isLastLevel)
     {
-        Debug.Log("You beat the level!");
         if(isLastLevel)
         {    
             buttonNext.enabled = false;
@@ -45,7 +44,6 @@ public class UIEndgame : MonoBehaviour
 
     public void ReturnToMainLevel()
     {
-        Debug.Log("Return to main level button clicked!");
         SceneManager.LoadScene(0);
     }
 }

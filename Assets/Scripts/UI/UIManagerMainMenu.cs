@@ -11,7 +11,6 @@ public class UIManagerMainMenu : UIManager
         overlayTitle = GetComponentInChildren<UITitle>().gameObject;
         dictAllOverlays.Add(overlayTitle.name, overlayTitle.GetComponent<Canvas>());
 
-
         // overlayStageSelect = GetComponentInChildren<UIStageSelect>().gameObject;
         // dictAllOverlays.Add(overlayStageSelect.name, overlayStageSelect.GetComponent<Canvas>());
 

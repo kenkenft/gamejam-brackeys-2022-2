@@ -51,37 +51,25 @@ public class CameraSetUp : MonoBehaviour
             switch(i)
             {
                 case 0:
-                {
                     targetCol.size = scaleMaskY;
                     targetCol.transform.position = posLeftMask;
                     break;
-                }
                 case 1:
-                {
                     targetCol.size = scaleMaskY;
                     targetCol.transform.position = posRightMask;
                     break;
-                }
                 case 2:
-                {
                     targetCol.size = scaleMaskX;
                     targetCol.transform.position = posTopMask;
                     break;
-                }
                 case 3:
-                {
                     targetCol.size = scaleMaskX;
                     targetCol.transform.position = posBottomMask;
                     break;
-                }
                 default:
-                {
                     Debug.Log("Error in setting boundary");
-                    break;
-                }            
+                    break;           
             }
         }
-
-
     }
 }

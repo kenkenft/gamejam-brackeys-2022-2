@@ -65,10 +65,7 @@ public class StackTotem : MonoBehaviour
 
         // ToDoCheck for nested totems
         if(targetClassStackTotem.GetCountStackedTotems() > 0)
-        {
-            Debug.Log("Nested totems detected");
             TransferListToTargetTotem(targetClassStackTotem, this);
-        }
 
         if(totemState == "active")
             audioManager.Play("totemStack");

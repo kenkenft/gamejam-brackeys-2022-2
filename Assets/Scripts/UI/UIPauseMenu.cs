@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class UIPauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Button buttonMainMenu, buttonContinue;
     private int nextLevel;
     void Awake()

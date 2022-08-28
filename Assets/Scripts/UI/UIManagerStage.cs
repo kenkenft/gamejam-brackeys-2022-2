@@ -9,7 +9,6 @@ public class UIManagerStage : UIManager
     private UIEndgame classUIEndgame;
     private UIPauseMenu classUIPauseMenu;
     private bool isGamePaused;
-
     public bool isLevelFinished;
     void Awake()
     {

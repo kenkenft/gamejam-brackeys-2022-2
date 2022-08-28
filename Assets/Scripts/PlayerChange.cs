@@ -9,8 +9,7 @@ public class PlayerChange : MonoBehaviour
     private List<PlayerMove> listClassPlayerMove = new List<PlayerMove>{};
     private List<Rigidbody2D> listRigs = new List<Rigidbody2D>{};
     private List<StackTotem> listClassStackTotem = new List<StackTotem>{};
-    // private List<Collider2D> listCols = new List<Collider2D>{};
-    private int currentTotemID = 0, counter = 0, maxTotemCount = 0;
+    private int counter = 0, maxTotemCount = 0;
     private bool nextTotemFound;
     private AudioManager audioManager;
     
@@ -18,7 +17,7 @@ public class PlayerChange : MonoBehaviour
     {
         try
         {
-            Debug.Log(listTotems[0].name);
+            listTotems[0].name = "totem (0)";
         }
         catch
         {
@@ -26,7 +25,6 @@ public class PlayerChange : MonoBehaviour
         }
 
         maxTotemCount = listTotems.Count;
-        // GameObject[] allTotemsArray = GameObject.FindGameObjectsWithTag("Totem");
         SetUpTotems();
     }
 
@@ -42,9 +40,6 @@ public class PlayerChange : MonoBehaviour
             listClassPlayerMove.Add(listTotems[counter].GetComponentInChildren<PlayerMove>());
             listClassStackTotem.Add(listTotems[counter].GetComponentInChildren<StackTotem>());
             listRigs.Add(listClassPlayerMove[counter].gameObject.GetComponent<Rigidbody2D>());
-            // listClassPlayerMove.Add(allTotemsArray[counter].GetComponentInChildren<PlayerMove>());
-            // listClassStackTotem.Add(allTotemsArray[counter].GetComponentInChildren<StackTotem>());
-            // listRigs.Add(listClassPlayerMove[counter].gameObject.GetComponent<Rigidbody2D>());
 
             listClassStackTotem[counter].totemID = counter;
 
@@ -67,7 +62,6 @@ public class PlayerChange : MonoBehaviour
 
     public void ChangeCharacter()
     {
-        Debug.Log("ChangeCharacter called!");
         if(maxTotemCount > 1)
         {
             SetTotemState(false);
@@ -116,8 +110,6 @@ public class PlayerChange : MonoBehaviour
 
     public void ChangeToTargetTotem(StackTotem currTotem, StackTotem nextTotem)
     {
-        // Debug.Log("ChangeToTargetTotem called!");
-
         counter = listTotemIDs.IndexOf(currTotem.totemID);
         SetTotemState(false);
 
