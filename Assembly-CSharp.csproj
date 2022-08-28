@@ -48,11 +48,13 @@
      <Compile Include="Assets\Scripts\TotemCollision.cs" />
      <Compile Include="Assets\Scripts\ThrowTotem.cs" />
      <Compile Include="Assets\Scripts\StackTotem.cs" />
-     <Compile Include="Assets\Scripts\playerMove.cs" />
+     <Compile Include="Assets\Scripts\PlayerMove.cs" />
      <Compile Include="Assets\Scripts\UI\UITitle.cs" />
      <Compile Include="Assets\Scripts\UI\UIManager.cs" />
      <Compile Include="Assets\Scripts\CameraSetUp.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Sound.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
