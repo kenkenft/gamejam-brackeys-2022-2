@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.68602705, b: 0, a: 1}
   m_FlipX: 0
@@ -420,8 +420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1186410c7dc31743a4d0d8aafa8c8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: 
-  lastLevel: 0
+  nextLevelNum: 0
+  isLastLevel: 0
+  classUIManagerStage: {fileID: 0}
 --- !u!61 &6347373868321128823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.89922845, b: 0, a: 1}
   m_FlipX: 0

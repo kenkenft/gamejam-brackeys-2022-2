@@ -70,7 +70,8 @@ public class StackTotem : MonoBehaviour
             TransferListToTargetTotem(targetClassStackTotem, this);
         }
 
-        audioManager.Play("totemStack");
+        if(totemState == "active")
+            audioManager.Play("totemStack");
     }
 
     public int GetCountStackedTotems()
