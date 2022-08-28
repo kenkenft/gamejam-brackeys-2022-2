@@ -9,9 +9,12 @@ public class PlayerChange : MonoBehaviour
     private List<PlayerMove> listClassPlayerMove = new List<PlayerMove>{};
     private List<Rigidbody2D> listRigs = new List<Rigidbody2D>{};
     private List<StackTotem> listClassStackTotem = new List<StackTotem>{};
+    private List<SpriteRenderer> listTotemSprites = new List<SpriteRenderer>{};
+    private List<Color> listTotemColors = new List<Color>{}, listTotemColorsInactive = new List<Color>{};
     private int counter = 0, maxTotemCount = 0;
     private bool nextTotemFound;
     private AudioManager audioManager;
+    private Color inactiveColor = new Color(0.5f,0.5f,0.5f,1);
     
     void Awake()
     {
@@ -39,7 +42,13 @@ public class PlayerChange : MonoBehaviour
         {
             listClassPlayerMove.Add(listTotems[counter].GetComponentInChildren<PlayerMove>());
             listClassStackTotem.Add(listTotems[counter].GetComponentInChildren<StackTotem>());
+            
             listRigs.Add(listClassPlayerMove[counter].gameObject.GetComponent<Rigidbody2D>());
+
+            listTotemSprites.Add(listTotems[counter].GetComponentInChildren<SpriteRenderer>());
+            listTotemColors.Add(listTotemSprites[counter].color);
+
+            listTotemColorsInactive.Add(new Color(listTotemColors[counter].r, listTotemColors[counter].g, listTotemColors[counter].b, 0.3f));
 
             listClassStackTotem[counter].totemID = counter;
 
@@ -47,7 +56,9 @@ public class PlayerChange : MonoBehaviour
             if(listTotemIDs[counter] != 0)
             {
                 listClassStackTotem[counter].isTotemRecruited = false;
+                
                 SetTotemState(false);
+                listTotemSprites[counter].color = inactiveColor;
             }
             else
             {
@@ -99,6 +110,10 @@ public class PlayerChange : MonoBehaviour
     {
         listClassStackTotem[counter].totemState = state ? "active" : "inactive";
         listClassPlayerMove[counter].enabled = state;
+        if(state)
+            SetColourState(counter, listTotemColors[counter]);
+        else
+            SetColourState(counter, listTotemColorsInactive[counter]);
     }
 
     private void PrintTotemState()
@@ -117,5 +132,15 @@ public class PlayerChange : MonoBehaviour
         listRigs[counter].isKinematic = false;
         listClassStackTotem[counter].isTotemStacked = false;
         SetTotemState(true);
+    }
+
+    public void SetTotemColorInactive(int totemID)
+    {
+        SetColourState(totemID, listTotemColorsInactive[totemID]);
+    }
+
+    public void SetColourState(int totemID, Color targetColor)
+    {
+        listTotemSprites[totemID].color = targetColor;
     }
 }
