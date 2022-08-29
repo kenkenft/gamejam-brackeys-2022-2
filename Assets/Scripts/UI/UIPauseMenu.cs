@@ -7,19 +7,28 @@ using UnityEngine.SceneManagement;
 
 public class UIPauseMenu : MonoBehaviour
 {
-    private Button buttonMainMenu, buttonContinue;
+    private Button buttonMainMenu, buttonContinue, buttonRestart;
     private int nextLevel;
     void Awake()
     {
         Button[] allButtons = GetComponentsInChildren<Button>();
         foreach(Button button in allButtons)
         {
-            if(button.name == "buttonMainMenu")
-                buttonMainMenu = button;
-            
-            if(button.name == "buttonContinue")
-                buttonContinue = button;
-            
+            switch(button.name)
+            {
+                case "buttonMainMenu":
+                    buttonMainMenu = button;
+                    break;
+                case "buttonContinue":
+                    buttonContinue = button;
+                    break;
+                case "buttonRestart":
+                    buttonRestart = button;
+                    break;
+                default:
+                    break;
+            }
+                
             button.interactable = false;
         }
 
@@ -30,6 +39,7 @@ public class UIPauseMenu : MonoBehaviour
         Time.timeScale = 0;
         buttonMainMenu.interactable = true;
         buttonContinue.interactable = true;
+        buttonRestart.interactable = true;
     }
 
     public void ContinueGame()
@@ -37,12 +47,13 @@ public class UIPauseMenu : MonoBehaviour
         Time.timeScale = 1;
         buttonMainMenu.interactable = false;
         buttonContinue.interactable = false;
+        buttonRestart.interactable = false;
     }
 
-    // public void RestartLevel()
-    // {
-    //     //Bonus ToDo Just load the current scene?
-    // }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     public void ReturnToMainLevel()
     {

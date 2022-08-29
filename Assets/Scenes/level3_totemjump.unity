@@ -869,7 +869,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7907456514410637691, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_text
-      value: This looks a little too high to jump to by yourself...
+      value: 'This looks a little too high to jump to by yourself...
+
+        Whilst
+        in a totem stack and after jumping, press Space again to do a Totem Jump'
       objectReference: {fileID: 0}
     - target: {fileID: 9021457179805952360, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_SizeDelta.x

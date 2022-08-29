@@ -901,7 +901,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Press A/D to move
 
-        Press Space to jump'
+        Press Space to jump
+
+        Press P to
+        pause'
       objectReference: {fileID: 0}
     - target: {fileID: 9021457179805952360, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_AnchoredPosition.x
