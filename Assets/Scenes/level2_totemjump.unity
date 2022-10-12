@@ -837,11 +837,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_text
-      value: 'Level 3: Totem Jump'
+      value: 'Level 2: Totem Jump'
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSize
-      value: 27
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_margin.z
@@ -849,7 +849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSizeBase
-      value: 27
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2735118844717039851, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_IsActive
@@ -953,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347373868321128822, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}
       propertyPath: nextLevelNum
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6112f3c9b756044b3beee563e5be4d, type: 3}

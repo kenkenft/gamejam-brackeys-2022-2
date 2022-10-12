@@ -871,15 +871,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSize
-      value: 27
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_margin.z
       value: -141.68353
       objectReference: {fileID: 0}
     - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864636757769557903, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_fontSizeBase
-      value: 27
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2735118844717039851, guid: 6afef971e9a8aea4bb4d31e38449b3b8, type: 3}
       propertyPath: m_IsActive

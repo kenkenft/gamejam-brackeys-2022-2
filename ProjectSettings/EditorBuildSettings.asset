@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/level1_basics.unity
     guid: 801aff36d2473dd48b9d320dcfaec6ac
   - enabled: 1
-    path: Assets/Scenes/level2_totemthrow.unity
-    guid: 78a9b10be1962f243bcb2e092d66e662
-  - enabled: 1
-    path: Assets/Scenes/level3_totemjump.unity
+    path: Assets/Scenes/level2_totemjump.unity
     guid: 7bb46714385cc6744851bf17612b794c
+  - enabled: 1
+    path: Assets/Scenes/level3_totemthrow.unity
+    guid: 78a9b10be1962f243bcb2e092d66e662
   - enabled: 1
     path: Assets/Scenes/level4_multijump.unity
     guid: dee38d35bb75f68459226ec26ed794e7

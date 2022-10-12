@@ -254,6 +254,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 690123735924002306, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 690123735924002306, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 1017424796004601933, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -301,6 +309,34 @@ PrefabInstance:
     - target: {fileID: 1017424796004601934, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
       propertyPath: m_Name
       value: allCanvasesMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239051053465830222, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239051053465830222, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2239051053465830222, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737104100744551854, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737104100744551854, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526955339495307309, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025175331190818118, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344e0b5bcd9f1404fac7e2a98df38737, type: 3}
